@@ -29,10 +29,18 @@ Keep the GitLab window open because you need the *Application Id* and *Secret* w
 Step 2: Configure Mattermost for GitLab SSO
 -------------------------------------------
 
-1. On your Mattermost server, add the *Application Id* and the *Secret* to the *GitLab* settings section in the ``config.json`` file:
+1. On your Mattermost server, add *SiteURL* entry, add the *Application Id* and the *Secret* to the *GitLab* settings section in the ``config.json`` file:
 
   a. Open ``config.json`` as root in a text editor. It's usually in ``/opt/mattermost/config`` but might be elsewhere on your system.
-  b. Locate the *GitLabSettings* section and add or update the following information:
+  b. Locate the *ServiceSettings* section and add or update the following information:
+    .. code-block:: javascript
+    
+        "ServiceSettings": {
+          "SiteURL": "https://{mattermost-site-name}
+          ...
+        }
+
+  c. Locate the *GitLabSettings* section and add or update the following information:
 
     .. code-block:: javascript
 
